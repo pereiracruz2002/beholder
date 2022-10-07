@@ -23,11 +23,13 @@ function Login(){
 
     function onSubmit(event){
         event.preventDefault();
-        doLogin(email, password).then(isValid =>{
-            if(isValid){
+        doLogin(email, password).then(response =>{
+            if(response){
+               localStorage.setItem('token',response.token);
                 history.push('/settings')
             }
         }).catch(err=>{
+            console.log('error')
             setError(err)
         })        
     }
