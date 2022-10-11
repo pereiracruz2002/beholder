@@ -10,4 +10,12 @@ function getSettingsByEmail(email){
     return result;
 }
 
-module.exports = { getSettingsByEmail }
+function getSettings(id){
+    return settingsModel.findOne({
+        where:{
+            id
+        }
+    })
+}
+
+module.exports = { getSettingsByEmail, getSettings }
